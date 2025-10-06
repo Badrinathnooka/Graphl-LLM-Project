@@ -1,0 +1,74 @@
+# ================= Character =================
+type Character {
+    id: ID!
+    name: String
+    height: Int
+    mass: Int
+    hairColors: [String]
+    skinColors: [String]
+    eyeColors: [String]
+    birthYear: String
+    gender: String
+    homeworld: String
+    species: String
+}
+
+input CharacterInput {
+    name: String
+    height: Int
+    mass: Int
+    hairColors: [String]
+    skinColors: [String]
+    eyeColors: [String]
+    birthYear: String
+    gender: String
+    homeworld: String
+    species: String
+}
+
+# ================= Species =================
+type Species {
+    id: ID!
+    name: String
+    classification: String
+    designation: String
+    averageHeight: Int
+    hairColors: [String]
+    skinColors: [String]
+    eyeColors: [String]
+    averageLifespan: Int
+    language: String
+    homeworld: String
+}
+
+input SpeciesInput {
+    name: String
+    classification: String
+    designation: String
+    averageHeight: Int
+    hairColors: [String]
+    skinColors: [String]
+    eyeColors: [String]
+    averageLifespan: Int
+    language: String
+    homeworld: String
+}
+
+# ================= Query =================
+type Query {
+    getAllCharacters: [Character]
+    getCharacter(id: ID!): Character
+    getAllSpecies: [Species]
+    getSpecies(id: ID!): Species
+}
+
+# ================= Mutation =================
+type Mutation {
+    createCharacter(character: CharacterInput): Character
+    updateCharacter(id: ID!, character: CharacterInput): Character
+    deleteCharacter(id: ID!): String
+
+    createSpecies(species: SpeciesInput): Species
+    updateSpecies(id: ID!, species: SpeciesInput): Species
+    deleteSpecies(id: ID!): String
+}
